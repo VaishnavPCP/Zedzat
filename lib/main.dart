@@ -14,7 +14,7 @@ class New extends StatefulWidget {
 class _NewState extends State<New> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: Page1(),
     );
   }

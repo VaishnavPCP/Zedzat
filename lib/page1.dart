@@ -11,13 +11,11 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  List iconwithname = [ ];
+  List icowithname = [ ];
 
 int select=0;
 
-bool showgrid=true;
-bool selectedbutton1=false;
-bool selectedbutton2=false;
+bool showgrid=false;
 
 
   void Item(int index) {
@@ -35,8 +33,8 @@ bool selectedbutton2=false;
     if(response.statusCode==200){
       var body=json.decode(response.body);
       setState(() {
-        iconwithname=body;
-        print("Icons${iconwithname}");
+        icowithname=body;
+        print("Icons${icowithname}");
       });
 
     }else{
@@ -145,10 +143,8 @@ bool selectedbutton2=false;
                   decoration: BoxDecoration(color: Colors.black38,borderRadius: BorderRadius.circular(5)),
                   child: Center(
                     child: TextButton(onPressed: (){
-                      setState(() {
-                        getData("product");
-                        showgrid=true;
-                      });
+                      getData("product");
+                      showgrid=true;
                     },
                     child: Text("Product",style: TextStyle(fontSize: 10, color: Colors.white),),)
                   ),
@@ -160,10 +156,8 @@ bool selectedbutton2=false;
                   decoration: BoxDecoration(color: Colors.black38,borderRadius: BorderRadius.circular(5)),
                   child: Center(
                     child: TextButton(onPressed: (){
-                      setState(() {
-                        getData("service");
-                        showgrid=true;
-                      });
+                      getData("service");
+                      showgrid=true;
                     },
                       child: Text("Service",style: TextStyle(fontSize: 10, color: Colors.white),),)
                   ),
@@ -179,17 +173,17 @@ bool selectedbutton2=false;
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 
                     crossAxisCount: 4, crossAxisSpacing: 7, mainAxisSpacing: 70),
-                itemCount: iconwithname.length,
+                itemCount: icowithname.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.grey[300],
-                        backgroundImage:NetworkImage(iconwithname[index]['category_image']),
+                        backgroundImage:NetworkImage(icowithname[index]['category_image']),
                       ),
                       SizedBox(height: 10,),
-                      Text(iconwithname[index]['category_name'],style: TextStyle(fontSize: 12),),
+                      Text(icowithname[index]['category_name'],style: TextStyle(fontSize: 12),),
                     ],
                   );
                 }),

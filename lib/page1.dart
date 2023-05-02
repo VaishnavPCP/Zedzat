@@ -11,13 +11,13 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  List icowithname = [ ];
+  List iconwithname = [ ];
 
 int select=0;
 
 bool showgrid=true;
 bool selectedbutton1=false;
-  bool selectedbutton2=false;
+bool selectedbutton2=false;
 
 
   void Item(int index) {
@@ -35,8 +35,8 @@ bool selectedbutton1=false;
     if(response.statusCode==200){
       var body=json.decode(response.body);
       setState(() {
-        icowithname=body;
-        print("Icons${icowithname}");
+        iconwithname=body;
+        print("Icons${iconwithname}");
       });
 
     }else{
@@ -179,17 +179,17 @@ bool selectedbutton1=false;
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 
                     crossAxisCount: 4, crossAxisSpacing: 7, mainAxisSpacing: 70),
-                itemCount: icowithname.length,
+                itemCount: iconwithname.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.grey[300],
-                        backgroundImage:NetworkImage(icowithname[index]['category_image']),
+                        backgroundImage:NetworkImage(iconwithname[index]['category_image']),
                       ),
                       SizedBox(height: 10,),
-                      Text(icowithname[index]['category_name'],style: TextStyle(fontSize: 12),),
+                      Text(iconwithname[index]['category_name'],style: TextStyle(fontSize: 12),),
                     ],
                   );
                 }),

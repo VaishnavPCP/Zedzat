@@ -178,12 +178,12 @@ bool showgrid=false;
                   return Column(
                     children: [
                       CircleAvatar(
-                        radius: 30,
+                        radius: 25,
                         backgroundColor: Colors.grey[300],
                         backgroundImage:NetworkImage(icowithname[index]['category_image']),
                       ),
                       SizedBox(height: 10,),
-                      Text(icowithname[index]['category_name'],style: TextStyle(fontSize: 12),),
+                      Text(icowithname[index]['category_name'],style: TextStyle(fontSize: 10),),
                     ],
                   );
                 }),
